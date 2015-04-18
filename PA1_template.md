@@ -129,6 +129,7 @@ c) Create a new dataset that is equal to the original dataset but with the missi
 # create a copy of the original data set
 a2 <- a
 
+
 # replace steps_complete by lookup from step_mean_per_interval where steps = NA
 a2$steps_complete <-ifelse(is.na(a2$steps),
                       step_mean_per_interval[which(step_mean_per_interval$dt_interval==a2$dt_interval),"steps"], 
@@ -186,7 +187,7 @@ Using lubridate wday function (that returns 1 for Sunday and 7 for Saturday) mar
 a2$daytype <- as.factor( ifelse(wday(a2$date) %in% c(1,7),"weekend", "weekday" ) )
 ```
 
-b) Make a panel plot containing a time series plot (i.e. type = "l" ) of the 5?minute interval (x?axis) an dthe average number of steps taken, averaged across all weekday days or weekend days (y?axis)
+b) Make a panel plot containing a time series plot (i.e. type = "l" ) of the 5 minute interval (x axis) an dthe average number of steps taken, averaged across all weekday days or weekend days (y axis)
 
 
 
